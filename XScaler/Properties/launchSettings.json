@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "XScaler": {
+      "commandName": "Project",
+      "workingDirectory": "D:\\GitHub\\XScaler"
+    }
+  }
+}

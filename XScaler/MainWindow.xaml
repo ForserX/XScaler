@@ -1,0 +1,42 @@
+﻿<Window x:Class="XScaler.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:XScaler"
+        mc:Ignorable="d"
+        Title="XScaler 1.0" Height="255" Width="394" ResizeMode="NoResize" Closed="OnClose" Loaded="Window_Loaded">
+    <Grid Drop="Grid_DragEnter" AllowDrop="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="211*"/>
+            <ColumnDefinition Width="169*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="FilesUI" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="2,2,19,3" Height="NaN" SelectionChanged="FilesUI_SelectionChanged" Grid.Column="1"/>
+        <Image HorizontalAlignment="Right" Height="22" Margin="0,20,0,0" VerticalAlignment="Top" Width="19" Source="minus.png" RenderTransformOrigin="0.332,0.33" MouseLeftButtonDown="DelClick" Grid.Column="1"/>
+        <Image HorizontalAlignment="Right" Height="17" Margin="0,2,1,0" VerticalAlignment="Top" Width="17" Source="/plus.png" RenderTransformOrigin="0.332,0.33" MouseLeftButtonDown="AddClick" Grid.Column="1"/>
+        <Image HorizontalAlignment="Right" Height="20" Margin="0,40,1,0" VerticalAlignment="Top" Width="17" Source="/clear.png" RenderTransformOrigin="0.332,0.33" MouseLeftButtonDown="ClearClick" Grid.Column="1"/>
+        <Label Content="Output directory" HorizontalAlignment="Left" Margin="3,0,0,22" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="tbOutput" Margin="3,0,0,5" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="162"/>
+        <Button x:Name="___Без_имени_" Content="Select" HorizontalAlignment="Right" Margin="0,0,4,5" VerticalAlignment="Bottom" Click="Button_Click" Width="38"/>
+        <Label Content="Upscaler mode" HorizontalAlignment="Left" Margin="0,2,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbModel" HorizontalAlignment="Left" Margin="4,26,0,0" VerticalAlignment="Top" Width="135" Text="AnimeVideo3">
+            <ComboBoxItem Content="RealESERGAN (2D)"/>
+            <ComboBoxItem Content="Waifu2x Photo (3D)"/>
+        </ComboBox>
+        <Slider x:Name="slScale" Margin="4,50,10,0" VerticalAlignment="Top" Minimum="2" Maximum="4" SmallChange="1" Value="4" ValueChanged="Slider_ValueChanged"/>
+        <Label x:Name="lbScale" Content="x4" HorizontalAlignment="Left" Margin="67,70,0,0" VerticalAlignment="Top" Background="#FFC5BFBF"/>
+        <Button Content="Make! " Margin="32,111,32,0" Click="Button_Click_1" Height="30" VerticalAlignment="Top"/>
+        <ProgressBar x:Name="pbRun" Height="10" Margin="5,149,5,0" VerticalAlignment="Top">
+            <UIElement.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </UIElement.RenderTransform>
+        </ProgressBar>
+        <Label Content="Scale rate:" HorizontalAlignment="Left" Margin="4,69,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
